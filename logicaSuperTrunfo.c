@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include<stdlib.h>
 
 int main(){
+    int opcao;
     char estado[50];
-    int codigo;
+    char codigo[3];
     char nome_da_cidade[100];
     unsigned long int populacao;
     float area;
@@ -10,16 +12,29 @@ int main(){
     int pontos_turisticos;
 
     char estado2[50];
-    int codigo2;
+    char codigo2[3];
     char nome_da_cidade2[100];
     unsigned long int populacao2;
     float area2;
     double pib2;
     int pontos_turisticos2;
+//menu interativo
+    printf("*** Jogo Super Trunfo ***\n");
+    printf("Menu Principal\n");
+    printf("1. Iniciar Jogo\n");
+    printf("2. Ver Regras\n");
+    printf("3. Sair\n");
+    printf("Escolha uma opção:\n");
+    scanf("%d", &opcao);
 
-    //Pegando o valor de cada carta
+    switch (opcao)
+    {
+    case 1:
+
+        //pegando valores da primeira carta
+
     printf("Digite o código da primeira carta:\n");
-    scanf("%u", &codigo);
+    scanf("%s", &codigo);
 
     printf("Digite o estado:\n");
     scanf("%s", &estado);
@@ -38,6 +53,8 @@ int main(){
 
     printf("Digite a quantidade de pontos turísticos:\n");
     scanf("%d", &pontos_turisticos);
+
+    //Pegando valores da segunda carta
 
     printf("Digite o código da segunda carta:\n");
     scanf("%s", &codigo2);
@@ -59,6 +76,16 @@ int main(){
 
     printf("Digite a quantidade de pontos turísticos:\n");
     scanf("%d", &pontos_turisticos2);
+    case 2:
+        printf("As regras são.....\n");
+        break;
+    case 3:
+        printf("Saindo do jogo\n");
+        break;
+    default:
+        printf("Opção inválida\n");
+        break;
+    }
 
     //Calculando pib per capita e densidade das duas cartas 
     float densidade_populacional = populacao / area;
@@ -76,11 +103,13 @@ int main(){
 
     // fazendo a comparação das 2 cartas
 
-    if(populacao > populacao2){
-        printf("Carta 1 venceu!\n");
+    if(pib_per_capita > pib_per_capita2){
+        printf("Carta 1 (%s) venceu!\n", estado);
     }else{
-        printf("Carta 2 venceu!\n");
+        printf("Carta 2 (%s) venceu!\n", estado2);
     }
+
+
 
     return 0;
 
